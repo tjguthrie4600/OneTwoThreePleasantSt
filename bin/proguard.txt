@@ -1,0 +1,15 @@
+# view AndroidManifest.xml #generated:18
+-keep class com.OneTwoThreePleasantSt.CalanderActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:19
+-keep class com.OneTwoThreePleasantSt.DirectionsActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:17
+-keep class com.OneTwoThreePleasantSt.HomeActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:9
+-keep class com.OneTwoThreePleasantSt.OneTwoThreePleasantSt { <init>(...); }
+
+# view AndroidManifest.xml #generated:20
+-keep class com.OneTwoThreePleasantSt.SearchActivity { <init>(...); }
+
