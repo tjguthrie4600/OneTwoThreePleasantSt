@@ -11,21 +11,22 @@ public final class R {
     public static final class attr {
     }
     public static final class drawable {
-        public static final int ic_launcher=0x7f020000;
-        public static final int icon=0x7f020001;
-        public static final int icon_calander_tab=0x7f020002;
-        public static final int icon_directions_tab=0x7f020003;
-        public static final int icon_home_tab=0x7f020004;
-        public static final int icon_search_tab=0x7f020005;
-        public static final int photos_gray=0x7f020006;
-        public static final int photos_white=0x7f020007;
-        public static final int songs_gray=0x7f020008;
-        public static final int songs_white=0x7f020009;
-        public static final int videos_gray=0x7f02000a;
-        public static final int videos_white=0x7f02000b;
+        public static final int calendar_black=0x7f020000;
+        public static final int calendar_white=0x7f020001;
+        public static final int directions_black=0x7f020002;
+        public static final int directions_white=0x7f020003;
+        public static final int home_black=0x7f020004;
+        public static final int home_white=0x7f020005;
+        public static final int icon_calendar_tab=0x7f020006;
+        public static final int icon_directions_tab=0x7f020007;
+        public static final int icon_home_tab=0x7f020008;
+        public static final int icon_search_tab=0x7f020009;
+        public static final int launcher=0x7f02000a;
+        public static final int search_black=0x7f02000b;
+        public static final int search_white=0x7f02000c;
     }
     public static final class layout {
-        public static final int calander_layout=0x7f030000;
+        public static final int calendar_layout=0x7f030000;
         public static final int directions_layout=0x7f030001;
         public static final int home_layout=0x7f030002;
         public static final int main=0x7f030003;

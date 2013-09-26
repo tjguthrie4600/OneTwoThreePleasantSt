@@ -23,11 +23,11 @@ public class OneTwoThreePleasantSt extends TabActivity
         Intent homeIntent = new Intent(this, HomeActivity.class);
         homespec.setContent(homeIntent);
         
-        // Tab for Calander
-        TabSpec calanderspec = tabHost.newTabSpec("Calander");
-        calanderspec.setIndicator("Calander", getResources().getDrawable(R.drawable.icon_calander_tab));
-        Intent calanderIntent = new Intent(this, CalanderActivity.class);
-        calanderspec.setContent(calanderIntent);
+        // Tab for Calendar
+        TabSpec calendarspec = tabHost.newTabSpec("Calendar");
+        calendarspec.setIndicator("Calendar", getResources().getDrawable(R.drawable.icon_calendar_tab));
+        Intent calendarIntent = new Intent(this, CalendarActivity.class);
+        calendarspec.setContent(calendarIntent);
         
         // Tab for Directions
         TabSpec directionsspec = tabHost.newTabSpec("Directions");
@@ -43,7 +43,7 @@ public class OneTwoThreePleasantSt extends TabActivity
         
         // Adding all TabSpec to TabHost
         tabHost.addTab(homespec); 
-        tabHost.addTab(calanderspec); 
+        tabHost.addTab(calendarspec); 
         tabHost.addTab(directionsspec); 
         tabHost.addTab(searchspec); 
     }

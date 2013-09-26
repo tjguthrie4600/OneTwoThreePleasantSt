@@ -5,7 +5,7 @@
       android:versionName="1.0">
   <uses-sdk android:minSdkVersion="8" />
 
-    <application android:label="@string/app_name" android:icon="@drawable/ic_launcher">
+    <application android:label="@string/app_name" android:icon="@drawable/launcher">
         <activity android:name="OneTwoThreePleasantSt"
                   android:label="@string/app_name">
             <intent-filter>
@@ -15,7 +15,7 @@
         </activity>
 
         <activity android:name=".HomeActivity" />
-        <activity android:name=".CalanderActivity" />
+        <activity android:name=".CalendarActivity" />
         <activity android:name=".DirectionsActivity" />
         <activity android:name=".SearchActivity" />
 
