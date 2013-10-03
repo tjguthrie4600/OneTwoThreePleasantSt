@@ -1,57 +1,189 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical" >
 
-<LinearLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="fill_parent"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+		xmlns:tools="http://schemas.android.com/tools"
+		android:layout_width="fill_parent"
+		android:layout_height="fill_parent"
+		android:gravity="center"
+		android:layout_gravity="center_horizontal"
+		android:orientation="vertical" >
+  
+  <LinearLayout
+      xmlns:android="http://schemas.android.com/apk/res/android"
+      android:id="@+id/month_and_buttons"
+      android:layout_width="fill_parent"
+      android:layout_height="wrap_content"
+      android:orientation="horizontal" >
+    <Button
+        android:id="@+id/leftArrow"
+        android:layout_weight="1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:id="@+id/month"
+	android:textSize="35sp"
+	android:layout_weight="2"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:orientation="horizontal" >
-        <Button
-            android:id="@+id/leftArrow"
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content" />
-	<TextView
-            android:id="@+id/month"
-	    android:textSize="35sp"
-	    android:layout_weight="2"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-	    android:gravity="center"
-            android:text="January" />
-        <Button
-            android:id="@+id/rightArrow"
-            android:layout_weight="1"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content" />
+	android:gravity="center"
+        android:text="January" />
+    <Button
+        android:id="@+id/rightArrow"
+        android:layout_weight="1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content" />
+    
+  </LinearLayout>  
+  <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+		android:id="@+id/daysoftheweek"
+		android:layout_below="@+id/month_and_buttons"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:orientation="horizontal" >
+    
+    <LinearLayout 
+	android:layout_width="0dp"
+	android:layout_height="wrap_content"
+	android:layout_weight="1"
+	android:gravity="left" >
+      <TextView
+	  android:layout_width="wrap_content"
+	  android:layout_height="wrap_content"
+	  android:text="Sun"
+	  android:textSize="15sp" />
+    </LinearLayout>
 
-</LinearLayout>
+    <LinearLayout 
+	android:layout_width="0dp"
+	android:layout_height="wrap_content"
+	android:layout_weight="1"
+	android:gravity="left" >
+      <TextView
+	  android:layout_width="wrap_content"
+	  android:layout_height="wrap_content"
+	  android:text="Mon"
+	  android:textSize="15sp" />
+    </LinearLayout>
+    <LinearLayout 
+	android:layout_width="0dp"
+	android:layout_height="wrap_content"
+	android:layout_weight="1"
+	android:gravity="left" >
+      <TextView
+	  android:layout_width="wrap_content"
+	  android:layout_height="wrap_content"
+	  android:text="Tue"
+	  android:textSize="15sp" />
+    </LinearLayout>
+    <LinearLayout 
+	android:layout_width="0dp"
+	android:layout_height="wrap_content"
+	android:layout_weight="1"
+	android:gravity="left" >
+      <TextView
+	  android:layout_width="wrap_content"
+	  android:layout_height="wrap_content"
+	  android:text="Wed"
+	  android:textSize="15sp" />
+    </LinearLayout>
+    <LinearLayout 
+	android:layout_width="0dp"
+	android:layout_height="wrap_content"
+	android:layout_weight="1"
+	android:gravity="left" >
+      <TextView
+	  android:layout_width="wrap_content"
+	  android:layout_height="wrap_content"
+	  android:text="Thu"
+	  android:textSize="15sp" />
+    </LinearLayout>
+    <LinearLayout 
+	android:layout_width="0dp"
+	android:layout_height="wrap_content"
+	android:layout_weight="1"
+	android:gravity="left" >
+      <TextView
+	  android:layout_width="wrap_content"
+	  android:layout_height="wrap_content"
+	  android:text="Fri"
+	  android:textSize="15sp" />
+    </LinearLayout>
+    <LinearLayout 
+	android:layout_width="0dp"
+	android:layout_height="wrap_content"
+	android:layout_weight="1"
+	android:gravity="left" >
+      <TextView
+	  android:layout_width="wrap_content"
+	  android:layout_height="wrap_content"
+	  android:text="Sat"
+	  android:textSize="15sp" />
+    </LinearLayout>
+  </LinearLayout>
 
 
-<GridView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/gridView1"
-    android:numColumns="7"
-    android:gravity="center"
-    android:columnWidth="50dp"
-    android:stretchMode="columnWidth"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent" > 
-</GridView>
+  <!--
+      <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+      android:layout_width="fill_parent"
+      android:layout_height="wrap_content"
+      android:stretchColumns="*"
+      android:columnWidth="50dp"
+      android:gravity="center"
+      android:layout_gravity="center_horizontal">
+      <TableRow
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:padding="10dip" >
+      <TextView
+      android:text="Sun"
+      android:gravity="center"
+      android:layout_weight="1"
+      android:textSize="15sp" />
+      <TextView
+      android:text="Mon"
+      android:gravity="center"
+      android:layout_weight="1"
+      android:textSize="15sp" />
+      <TextView
+      android:text="Tue"
+      android:gravity="center"
+      android:layout_weight="1"
+      android:textSize="15sp" />
+      <TextView
+      android:text="Wed"
+      android:gravity="center"
+      android:layout_weight="1"
+      android:textSize="15sp" />
+      <TextView
+      android:text="Thu"
+      android:gravity="center"
+      android:layout_weight="1"
+      android:textSize="15sp" />
+      <TextView
+      android:text="Fri"
+      android:gravity="center"
+      android:layout_weight="1"
+      android:textSize="15sp" />
+      <TextView
+      android:text="Sat"
+      android:gravity="center"
+      android:layout_weight="1"
+      android:textSize="15sp" />
+      </TableRow>
+      </TableLayout>
+  -->
 
+  <GridView xmlns:android="http://schemas.android.com/apk/res/android"
+	    android:id="@+id/gridView1"
+	    android:layout_below="@+id/daysoftheweek"
+	    android:numColumns="7"
+	    android:gravity="left"
+	    android:columnWidth="50dp"
+	    android:layout_gravity="center_horizontal"
+	    android:stretchMode="columnWidth"
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content" >
+  </GridView>
 
-<GridView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/gridView2"
-    android:numColumns="7"
-    android:gravity="center"
-    android:columnWidth="50dp"
-    android:stretchMode="columnWidth"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent" > 
-</GridView>
-
-</LinearLayout>
+</RelativeLayout>

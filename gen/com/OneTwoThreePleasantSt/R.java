@@ -26,11 +26,12 @@ public final class R {
         public static final int search_white=0x7f02000c;
     }
     public static final class id {
-        public static final int gridView1=0x7f050003;
-        public static final int gridView2=0x7f050004;
-        public static final int leftArrow=0x7f050000;
-        public static final int month=0x7f050001;
-        public static final int rightArrow=0x7f050002;
+        public static final int daysoftheweek=0x7f050004;
+        public static final int gridView1=0x7f050005;
+        public static final int hder=0x7f050000;
+        public static final int leftArrow=0x7f050001;
+        public static final int month=0x7f050002;
+        public static final int rightArrow=0x7f050003;
     }
     public static final class layout {
         public static final int calendar_layout=0x7f030000;

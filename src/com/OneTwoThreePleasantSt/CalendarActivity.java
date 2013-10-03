@@ -14,7 +14,6 @@ import android.widget.AdapterView.OnItemClickListener;
 public class CalendarActivity extends Activity 
 {
     GridView dayGrid;
-    GridView weekGrid;
 
     // Days In The Month
     static final String[] days = new String[] 
@@ -26,11 +25,6 @@ public class CalendarActivity extends Activity
 	    "29", "30", "31"
 	};
 
-    // Days In Week
-    static final String[] weeks = new String[] 
-     {
-     	"S", "M", "T", "W", "R", "F", "S"
-     };
 
     // Called When The Activity Is First Created
     public void onCreate(Bundle savedInstanceState) 
@@ -44,11 +38,6 @@ public class CalendarActivity extends Activity
 	dayGrid = (GridView) findViewById(R.id.gridView1);
 	ArrayAdapter<String> dayAdapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1, days);
 	dayGrid.setAdapter(dayAdapter);
-
-	// Set Up The Week Grid
-	weekGrid = (GridView) findViewById(R.id.gridView2);
-	ArrayAdapter<String> weekAdapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1, weeks);
-	weekGrid.setAdapter(weekAdapter);
 
 	// Listen On The Day Grid For User Clicks
 	dayGrid.setOnItemClickListener(new OnItemClickListener() 
