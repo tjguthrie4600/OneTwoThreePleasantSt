@@ -1,2 +1,2 @@
-/home/jwolen/Documents/cs573c/OneTwoThreePleasantSt/bin/AndroidManifest.xml : \
-/home/jwolen/Documents/cs573c/OneTwoThreePleasantSt/AndroidManifest.xml \
+/home/tguthri1/Classes/HCI/andriod/OneTwoThreePleasantSt/bin/AndroidManifest.xml : \
+/home/tguthri1/Classes/HCI/andriod/OneTwoThreePleasantSt/AndroidManifest.xml \
