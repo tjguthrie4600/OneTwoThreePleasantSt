@@ -89,10 +89,10 @@ public class CalendarActivity extends Activity
 	for (int i = 0; i<calendar.getStartDay(); i++)
 	    days[i] = "";
 	
-	for (int j = calendar.getStartDay(); j<=calendar.getEndDay()+2; j++)
-	    days[j] = Integer.toString(j-1);
+	for (int j = calendar.getStartDay(); j<=calendar.getEndDay()+calendar.getStartDay(); j++)
+	    days[j] = Integer.toString(j-calendar.getStartDay()+1);
 
-	for (int k = calendar.getEndDay()+3; k<days.length; k++)
+	for (int k = calendar.getEndDay()+calendar.getStartDay()+1; k<days.length; k++)
 	    days[k] = "";
 
 	// Set The Month
