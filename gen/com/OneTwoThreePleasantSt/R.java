@@ -17,20 +17,28 @@ public final class R {
         public static final int directions_white=0x7f020003;
         public static final int home_black=0x7f020004;
         public static final int home_white=0x7f020005;
-        public static final int icon_calendar_tab=0x7f020006;
-        public static final int icon_directions_tab=0x7f020007;
-        public static final int icon_home_tab=0x7f020008;
-        public static final int icon_search_tab=0x7f020009;
-        public static final int launcher=0x7f02000a;
-        public static final int search_black=0x7f02000b;
-        public static final int search_white=0x7f02000c;
+        public static final int ic_launcher=0x7f020006;
+        public static final int icon=0x7f020007;
+        public static final int icon_calendar_tab=0x7f020008;
+        public static final int icon_directions_tab=0x7f020009;
+        public static final int icon_home_tab=0x7f02000a;
+        public static final int icon_search_tab=0x7f02000b;
+        public static final int launcher=0x7f02000c;
+        public static final int photos_gray=0x7f02000d;
+        public static final int photos_white=0x7f02000e;
+        public static final int search_black=0x7f02000f;
+        public static final int search_white=0x7f020010;
+        public static final int songs_gray=0x7f020011;
+        public static final int songs_white=0x7f020012;
+        public static final int videos_gray=0x7f020013;
+        public static final int videos_white=0x7f020014;
     }
     public static final class id {
         public static final int daysoftheweek=0x7f050004;
         public static final int gridView1=0x7f050005;
-        public static final int hder=0x7f050000;
         public static final int leftArrow=0x7f050001;
-        public static final int month=0x7f050002;
+        public static final int monthView=0x7f050002;
+        public static final int month_and_buttons=0x7f050000;
         public static final int rightArrow=0x7f050003;
     }
     public static final class layout {
@@ -42,5 +50,6 @@ public final class R {
     }
     public static final class string {
         public static final int app_name=0x7f040000;
+        public static final int monthValue=0x7f040001;
     }
 }
