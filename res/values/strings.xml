@@ -2,4 +2,5 @@
 <resources>
     <string name="app_name">OneTwoThreePleasantSt</string>
     <string name="monthValue">Month</string>
+    <string name="yearValue">Year</string>
 </resources>
