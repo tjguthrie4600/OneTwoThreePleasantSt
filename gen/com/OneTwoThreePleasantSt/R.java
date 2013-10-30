@@ -27,11 +27,15 @@ public final class R {
     }
     public static final class id {
         public static final int daysoftheweek=0x7f050005;
+        public static final int directionsButton=0x7f05000a;
         public static final int gridView1=0x7f050006;
         public static final int leftArrow=0x7f050001;
         public static final int monthView=0x7f050002;
         public static final int month_and_buttons=0x7f050000;
         public static final int rightArrow=0x7f050004;
+        public static final int startButton=0x7f050009;
+        public static final int startLocation=0x7f050007;
+        public static final int startLocationVaule=0x7f050008;
         public static final int yearView=0x7f050003;
     }
     public static final class layout {
