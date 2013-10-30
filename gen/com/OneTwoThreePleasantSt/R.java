@@ -15,15 +15,21 @@ public final class R {
         public static final int calendar_white=0x7f020001;
         public static final int directions_black=0x7f020002;
         public static final int directions_white=0x7f020003;
-        public static final int home_black=0x7f020004;
-        public static final int home_white=0x7f020005;
-        public static final int icon_calendar_tab=0x7f020006;
-        public static final int icon_directions_tab=0x7f020007;
-        public static final int icon_home_tab=0x7f020008;
-        public static final int icon_search_tab=0x7f020009;
-        public static final int launcher=0x7f02000a;
-        public static final int search_black=0x7f02000b;
-        public static final int search_white=0x7f02000c;
+        public static final int forward_grey=0x7f020004;
+        public static final int forward_orange=0x7f020005;
+        public static final int home_black=0x7f020006;
+        public static final int home_white=0x7f020007;
+        public static final int icon_calendar_tab=0x7f020008;
+        public static final int icon_directions_tab=0x7f020009;
+        public static final int icon_forward=0x7f02000a;
+        public static final int icon_home_tab=0x7f02000b;
+        public static final int icon_previous=0x7f02000c;
+        public static final int icon_search_tab=0x7f02000d;
+        public static final int launcher=0x7f02000e;
+        public static final int previous_grey=0x7f02000f;
+        public static final int previous_orange=0x7f020010;
+        public static final int search_black=0x7f020011;
+        public static final int search_white=0x7f020012;
     }
     public static final class id {
         public static final int daysoftheweek=0x7f050005;

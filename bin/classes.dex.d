@@ -1,7 +1,5 @@
 /home/tguthri1/Classes/HCI/OneTwoThreePleasantSt/bin/classes.dex : \
-/home/tguthri1/Classes/HCI/OneTwoThreePleasantSt/bin/classes/com/OneTwoThreePleasantSt/MyLocation.class \
 /home/tguthri1/Classes/HCI/OneTwoThreePleasantSt/bin/classes/com/OneTwoThreePleasantSt/DirectionsActivity.class \
-/home/tguthri1/Classes/HCI/OneTwoThreePleasantSt/bin/classes/com/OneTwoThreePleasantSt/MyLocation$GetLastLocation.class \
 /home/tguthri1/Classes/HCI/OneTwoThreePleasantSt/bin/classes/com/OneTwoThreePleasantSt/CalendarActivity$2.class \
 /home/tguthri1/Classes/HCI/OneTwoThreePleasantSt/bin/classes/com/OneTwoThreePleasantSt/SearchActivity.class \
 /home/tguthri1/Classes/HCI/OneTwoThreePleasantSt/bin/classes/com/OneTwoThreePleasantSt/R$string.class \
@@ -13,13 +11,10 @@
 /home/tguthri1/Classes/HCI/OneTwoThreePleasantSt/bin/classes/com/OneTwoThreePleasantSt/CalendarActivity.class \
 /home/tguthri1/Classes/HCI/OneTwoThreePleasantSt/bin/classes/com/OneTwoThreePleasantSt/R$id.class \
 /home/tguthri1/Classes/HCI/OneTwoThreePleasantSt/bin/classes/com/OneTwoThreePleasantSt/R$layout.class \
-/home/tguthri1/Classes/HCI/OneTwoThreePleasantSt/bin/classes/com/OneTwoThreePleasantSt/MyLocation$2.class \
-/home/tguthri1/Classes/HCI/OneTwoThreePleasantSt/bin/classes/com/OneTwoThreePleasantSt/MyLocation$LocationResult.class \
 /home/tguthri1/Classes/HCI/OneTwoThreePleasantSt/bin/classes/com/OneTwoThreePleasantSt/R$attr.class \
 /home/tguthri1/Classes/HCI/OneTwoThreePleasantSt/bin/classes/com/OneTwoThreePleasantSt/CalendarActivity$1.class \
 /home/tguthri1/Classes/HCI/OneTwoThreePleasantSt/bin/classes/com/OneTwoThreePleasantSt/DirectionsActivity$3.class \
 /home/tguthri1/Classes/HCI/OneTwoThreePleasantSt/bin/classes/com/OneTwoThreePleasantSt/DirectionsActivity$1.class \
-/home/tguthri1/Classes/HCI/OneTwoThreePleasantSt/bin/classes/com/OneTwoThreePleasantSt/MyLocation$1.class \
 /home/tguthri1/Classes/HCI/OneTwoThreePleasantSt/bin/classes/com/OneTwoThreePleasantSt/HomeActivity.class \
 /home/tguthri1/Classes/HCI/OneTwoThreePleasantSt/bin/classes/com/OneTwoThreePleasantSt/DirectionsActivity$4.class \
 /home/tguthri1/Classes/HCI/OneTwoThreePleasantSt/bin/classes/com/OneTwoThreePleasantSt/R$drawable.class \

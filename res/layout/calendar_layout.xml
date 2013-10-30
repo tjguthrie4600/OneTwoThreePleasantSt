@@ -14,18 +14,20 @@
       android:layout_width="fill_parent"
       android:layout_height="wrap_content"
       android:orientation="horizontal" >
+    
     <Button
-        android:id="@+id/leftArrow"
-        android:layout_weight="1"
+	android:id="@+id/leftArrow"
+	android:layout_weight="1"
         android:layout_width="0dp"
-        android:layout_height="wrap_content" />
+	android:layout_height="100px"
+	android:background="@drawable/icon_previous"/>
 
     <LinearLayout
       xmlns:android="http://schemas.android.com/apk/res/android"
       android:id="@+id/month_and_buttons"
       android:layout_width="0dp"
       android:gravity="center"
-      android:layout_weight="3"
+      android:layout_weight="5"
       android:layout_height="wrap_content"
       android:orientation="horizontal" >
       <TextView
@@ -43,12 +45,12 @@
 	  android:layout_height="wrap_content"
           android:text="@string/yearValue" />
  </LinearLayout>
-    <Button
-        android:id="@+id/rightArrow"
-        android:layout_weight="1"
+ <Button
+	android:id="@+id/rightArrow"
+	android:layout_weight="1"
         android:layout_width="0dp"
-        android:layout_height="wrap_content" />
-    
+	android:layout_height="100px"
+	android:background="@drawable/icon_forward"/>
   </LinearLayout>  
   <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 		android:id="@+id/daysoftheweek"
