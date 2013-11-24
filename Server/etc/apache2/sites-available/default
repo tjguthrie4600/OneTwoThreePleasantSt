@@ -1,0 +1,15 @@
+<VirtualHost *:80>
+        ServerAdmin webmaster@localhost
+
+        ScriptAlias /lamp/pleasant /srv/lamp/pleasant
+        <Location /pleasant>
+            Options ExecCGI -MultiViews +SymLinksIfOwnerMatch
+            AddHandler cgi-script .py
+        </Location>
+
+        ErrorLog /var/log/apache2/error.log
+        LogLevel warn
+
+        CustomLog /var/log/apache2/access.log combined
+
+</VirtualHost>

@@ -1,0 +1,3 @@
+#! /bin/bash
+
+sudo apt-get install python-mysqldb apache2-suexec perl php5 libapache2-mod-php5 mysql-server php5-cli libapache2-mod-suphp php5-pgsql php5-cgi postgresql subversion oidentd php5-mysql

@@ -1,0 +1,32 @@
+EVENT
+=========================================================================
+DATE BAND1 BAND2 BAND3 BAND4 BAND5 BAND6 BAND7 BAND8 BAND9 TICKET COMMENT
+=========================================================================
+
+BAND
+=================
+ID   NAME    URL
+=================
+
+
+CREATE TABLE EVENT (
+EVENTDATE     DATE     PRIMARY KEY,
+BAND1         INT(5),
+BAND2         INT(5),
+BAND3         INT(5),
+BAND4         INT(5),
+BAND5         INT(5),
+BAND6         INT(5),
+BAND7         INT(5),
+BAND8         INT(5),
+BAND9         INT(5),
+TICKET        VARCHAR(250),
+COMMENT       VARCHAR(500)    
+);
+
+
+CREATE TABLE BAND (
+ID            INT(5)  PRIMARY KEY AUTO_INCREMENT,
+NAME          VARCHAR(250),
+URL           VARCHAR(250)
+);
