@@ -13,7 +13,7 @@ def PleasantMobile(band, beforeToday):
     # Make Apache Happy
     print "Content-Type: text/xml\n"
     # Call The Application
-    dataStream = Pleasant.findBand(band, beforeToday)
+    dataStream = Pleasant.findBand(band,bool(int(beforeToday)))
     f.write(now.strftime("%Y-%m-%d %H:%M: ") + dataStream + '\n')
     return dataStream
 
@@ -26,4 +26,3 @@ server.register_function(PleasantMobile)
 # Handles The Requests
 server.handle_request()
 f.close()
-

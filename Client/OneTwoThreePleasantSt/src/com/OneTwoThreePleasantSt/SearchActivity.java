@@ -19,12 +19,16 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Message;
 import android.net.NetworkInfo;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 
 public class SearchActivity extends Activity implements Runnable 
 {
     // UI Objects
-    EditText band;
-    Button commitButton;
+    private EditText band;
+    private Button commitButton;
+    private RadioGroup radGrp;
+    private RadioButton radBut;
     private ProgressDialog progress;
 
     // Storage For The Result                                                                                                                                              
@@ -37,6 +41,7 @@ public class SearchActivity extends Activity implements Runnable
 
 	// Set Reference For Feilds
 	band = (EditText) findViewById(R.id.bandNameValue);
+	
         commitButton = (Button) findViewById(R.id.searchButton);
 
 	listen();
@@ -86,18 +91,29 @@ public class SearchActivity extends Activity implements Runnable
 	// Store the username and password on submit
 	String bandString = band.getText().toString();
 
+	// Get the value of the Radio Button
+	radGrp = (RadioGroup) findViewById(R.id.radiogroup);
+	int radioId = radGrp.getCheckedRadioButtonId();
+	radBut = (RadioButton) findViewById(radioId);
+	CharSequence radioString = radBut.getText();
+
+	if (radioString.equals("Before Today"))
+	    radioString = "1";
+	else
+	    radioString = "0";
+	
 	// Create The XMLRPC Client
         URI uri = URI.create("http://98.236.199.243/lamp/pleasant/XML-RPC-Server.py");
         XMLRPCClient client = new XMLRPCClient(uri);
         try
         {
 	    // Make The Call To The Server
-	    serverResult = (String) client.call("PleasantMobile", bandString);
+	    serverResult = (String) client.call("PleasantMobile", bandString, radioString);
         }
         catch (XMLRPCException e)
         {
 	    // Log Errors
-	    Log.w("XMLRPC Test!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!", "Error", e);
+	    Log.w("XMLRPC Error!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!", "Error", e);
 	}
 	
 	// Create And Send Message To User Interface Thread
