@@ -2,18 +2,20 @@ package com.OneTwoThreePleasantSt;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.widget.TextView;
 import android.content.Intent;
-import android.widget.Button;
 import android.view.View;
-import android.widget.ScrollView;
-import android.widget.ImageView;
-import android.widget.Toast;
-import android.content.Context;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+import java.util.ArrayList;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 
 // Activity To View Band Results
 public class BandResultsActivity extends Activity
 {
+
+    private ListView lv;
+
     @Override
     public void onCreate(Bundle savedInstanceState)
     {
@@ -21,16 +23,34 @@ public class BandResultsActivity extends Activity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.band_results);
 
-        // Get The Result From The Main Activity
+	// Container for the results
+	lv = (ListView) findViewById(R.id.bandListView);
+	ArrayList<String> arrayList = new ArrayList<String>();
+
+	// Get The Result From The Main Activity
         Intent intent = getIntent();
         String result = intent.getStringExtra("result");
-
-	Context context = getApplicationContext();
-	CharSequence text = result;
-	int duration = Toast.LENGTH_LONG;
-	Toast toast = Toast.makeText(context, text, duration);
-	toast.show();
-
+	String resultArray[] = result.split("\\r?\\n");
 	
-    }
+	for (int i = 0; i < resultArray.length; i++)
+	    arrayList.add(resultArray[i]);
+
+	// Display the results
+	ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1, arrayList);
+	lv.setAdapter(arrayAdapter); 
+
+	listen();
+     }
+
+    // Listen for clicks on the list view
+    public void listen()
+    {
+	lv.setOnItemClickListener(new OnItemClickListener() 
+	{
+		public void onItemClick(AdapterView<?> parent, View view, int position, long id) 
+		{
+		    String name = (String) lv.getItemAtPosition(position);    
+		}
+	});
+    }   
 }

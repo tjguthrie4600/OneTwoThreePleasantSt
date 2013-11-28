@@ -13,4 +13,11 @@
       android:gravity="center"
       android:textSize="25sp"
       android:text="Results"/>
+
+  <ListView
+      android:id="@+id/bandListView"
+      android:layout_height="fill_parent"
+      android:layout_width="fill_parent" 
+       android:drawSelectorOnTop="false"/>
+
 </LinearLayout>
