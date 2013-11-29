@@ -9,12 +9,12 @@ now = datetime.datetime.now()
 f = open('/srv/lamp/pleasant/AccessLog', 'a+')
 
 # Function To Call Mobile Application
-def PleasantMobile(band, beforeToday):
+def PleasantMobile(function, statement):
     # Make Apache Happy
     print "Content-Type: text/xml\n"
     # Call The Application
-    dataStream = Pleasant.findBand(band,bool(int(beforeToday)))
-    f.write(now.strftime("%Y-%m-%d %H:%M: ") + dataStream + '\n')
+    dataStream = Pleasant.main([function, statement])
+    f.write(now.strftime("%Y-%m-%d %H:%M: ") + '\n' + dataStream + '\n')
     return dataStream
 
 # CGI SERVER

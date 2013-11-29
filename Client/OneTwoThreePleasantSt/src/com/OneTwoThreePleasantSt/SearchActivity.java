@@ -98,9 +98,9 @@ public class SearchActivity extends Activity implements Runnable
 	CharSequence radioString = radBut.getText();
 
 	if (radioString.equals("Before Today"))
-	    radioString = "1";
-	else
 	    radioString = "0";
+	else
+	    radioString = "1";
 	
 	// Create The XMLRPC Client
         URI uri = URI.create("http://98.236.199.243/lamp/pleasant/XML-RPC-Server.py");
@@ -108,7 +108,7 @@ public class SearchActivity extends Activity implements Runnable
         try
         {
 	    // Make The Call To The Server
-	    serverResult = (String) client.call("PleasantMobile", bandString, radioString);
+	    serverResult = (String) client.call("PleasantMobile", radioString, bandString);
         }
         catch (XMLRPCException e)
         {
