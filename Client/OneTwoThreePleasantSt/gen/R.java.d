@@ -25,17 +25,4 @@
 /home/tguthri1/Classes/HCI/OneTwoThreePleasantSt/Client/OneTwoThreePleasantSt/res/drawable-hdpi/home_black.png \
 /home/tguthri1/Classes/HCI/OneTwoThreePleasantSt/Client/OneTwoThreePleasantSt/res/drawable-hdpi/launcher.png \
 /home/tguthri1/Classes/HCI/OneTwoThreePleasantSt/Client/OneTwoThreePleasantSt/res/values/strings.xml \
-/home/tguthri1/Classes/HCI/OneTwoThreePleasantSt/Client/OneTwoThreePleasantSt/bin/res/drawable-hdpi/forward_grey.png \
-/home/tguthri1/Classes/HCI/OneTwoThreePleasantSt/Client/OneTwoThreePleasantSt/bin/res/drawable-hdpi/previous_grey.png \
-/home/tguthri1/Classes/HCI/OneTwoThreePleasantSt/Client/OneTwoThreePleasantSt/bin/res/drawable-hdpi/calendar_black.png \
-/home/tguthri1/Classes/HCI/OneTwoThreePleasantSt/Client/OneTwoThreePleasantSt/bin/res/drawable-hdpi/search_white.png \
-/home/tguthri1/Classes/HCI/OneTwoThreePleasantSt/Client/OneTwoThreePleasantSt/bin/res/drawable-hdpi/forward_orange.png \
-/home/tguthri1/Classes/HCI/OneTwoThreePleasantSt/Client/OneTwoThreePleasantSt/bin/res/drawable-hdpi/search_black.png \
-/home/tguthri1/Classes/HCI/OneTwoThreePleasantSt/Client/OneTwoThreePleasantSt/bin/res/drawable-hdpi/home_white.png \
-/home/tguthri1/Classes/HCI/OneTwoThreePleasantSt/Client/OneTwoThreePleasantSt/bin/res/drawable-hdpi/directions_white.png \
-/home/tguthri1/Classes/HCI/OneTwoThreePleasantSt/Client/OneTwoThreePleasantSt/bin/res/drawable-hdpi/calendar_white.png \
-/home/tguthri1/Classes/HCI/OneTwoThreePleasantSt/Client/OneTwoThreePleasantSt/bin/res/drawable-hdpi/previous_orange.png \
-/home/tguthri1/Classes/HCI/OneTwoThreePleasantSt/Client/OneTwoThreePleasantSt/bin/res/drawable-hdpi/directions_black.png \
-/home/tguthri1/Classes/HCI/OneTwoThreePleasantSt/Client/OneTwoThreePleasantSt/bin/res/drawable-hdpi/home_black.png \
-/home/tguthri1/Classes/HCI/OneTwoThreePleasantSt/Client/OneTwoThreePleasantSt/bin/res/drawable-hdpi/launcher.png \
 /home/tguthri1/Classes/HCI/OneTwoThreePleasantSt/Client/OneTwoThreePleasantSt/bin/AndroidManifest.xml \
