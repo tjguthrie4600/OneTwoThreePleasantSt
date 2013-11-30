@@ -5,6 +5,7 @@
 /home/tguthri1/Classes/HCI/OneTwoThreePleasantSt/Client/OneTwoThreePleasantSt/res/layout/search_layout.xml \
 /home/tguthri1/Classes/HCI/OneTwoThreePleasantSt/Client/OneTwoThreePleasantSt/res/layout/home_layout.xml \
 /home/tguthri1/Classes/HCI/OneTwoThreePleasantSt/Client/OneTwoThreePleasantSt/res/layout/band_results.xml \
+/home/tguthri1/Classes/HCI/OneTwoThreePleasantSt/Client/OneTwoThreePleasantSt/res/layout/band_layout.xml \
 /home/tguthri1/Classes/HCI/OneTwoThreePleasantSt/Client/OneTwoThreePleasantSt/res/drawable-hdpi/forward_grey.png \
 /home/tguthri1/Classes/HCI/OneTwoThreePleasantSt/Client/OneTwoThreePleasantSt/res/drawable-hdpi/previous_grey.png \
 /home/tguthri1/Classes/HCI/OneTwoThreePleasantSt/Client/OneTwoThreePleasantSt/res/drawable-hdpi/icon_search_tab.xml \

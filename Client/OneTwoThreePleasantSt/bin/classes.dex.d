@@ -11,6 +11,7 @@
 /home/tguthri1/Classes/HCI/OneTwoThreePleasantSt/Client/OneTwoThreePleasantSt/bin/classes/com/OneTwoThreePleasantSt/SearchActivity$2.class \
 /home/tguthri1/Classes/HCI/OneTwoThreePleasantSt/Client/OneTwoThreePleasantSt/bin/classes/com/OneTwoThreePleasantSt/CalendarActivity.class \
 /home/tguthri1/Classes/HCI/OneTwoThreePleasantSt/Client/OneTwoThreePleasantSt/bin/classes/com/OneTwoThreePleasantSt/R$id.class \
+/home/tguthri1/Classes/HCI/OneTwoThreePleasantSt/Client/OneTwoThreePleasantSt/bin/classes/com/OneTwoThreePleasantSt/BandResultsActivity$2.class \
 /home/tguthri1/Classes/HCI/OneTwoThreePleasantSt/Client/OneTwoThreePleasantSt/bin/classes/com/OneTwoThreePleasantSt/R$layout.class \
 /home/tguthri1/Classes/HCI/OneTwoThreePleasantSt/Client/OneTwoThreePleasantSt/bin/classes/com/OneTwoThreePleasantSt/SearchActivity$1.class \
 /home/tguthri1/Classes/HCI/OneTwoThreePleasantSt/Client/OneTwoThreePleasantSt/bin/classes/com/OneTwoThreePleasantSt/R$attr.class \
@@ -23,6 +24,7 @@
 /home/tguthri1/Classes/HCI/OneTwoThreePleasantSt/Client/OneTwoThreePleasantSt/bin/classes/com/OneTwoThreePleasantSt/DirectionsActivity$4.class \
 /home/tguthri1/Classes/HCI/OneTwoThreePleasantSt/Client/OneTwoThreePleasantSt/bin/classes/com/OneTwoThreePleasantSt/R$drawable.class \
 /home/tguthri1/Classes/HCI/OneTwoThreePleasantSt/Client/OneTwoThreePleasantSt/bin/classes/com/OneTwoThreePleasantSt/OneTwoThreePleasantSt.class \
+/home/tguthri1/Classes/HCI/OneTwoThreePleasantSt/Client/OneTwoThreePleasantSt/bin/classes/com/OneTwoThreePleasantSt/BandActivity.class \
 /home/tguthri1/Classes/HCI/OneTwoThreePleasantSt/Client/OneTwoThreePleasantSt/bin/classes/org/xmlrpc/android/XMLRPCFault.class \
 /home/tguthri1/Classes/HCI/OneTwoThreePleasantSt/Client/OneTwoThreePleasantSt/bin/classes/org/xmlrpc/android/XMLRPCSerializer.class \
 /home/tguthri1/Classes/HCI/OneTwoThreePleasantSt/Client/OneTwoThreePleasantSt/bin/classes/org/xmlrpc/android/IXMLRPCSerializer.class \

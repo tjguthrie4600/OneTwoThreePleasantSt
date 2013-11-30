@@ -44,10 +44,10 @@ def getBandID(name):
 def getBandWeb(name):
     encodedName = base64.b64encode(name + "\n")
     url = query("SELECT URL FROM BAND WHERE NAME ='" + encodedName + "'")
-    if url:
+    if url and url[0][0] is not None:
         decodedURL = base64.b64decode(url[0][0])
     else:
-        decodedURL="There is no website associated with this band"
+        decodedURL="There is no website associated with this band\n"
     return decodedURL
 
 # Gets dates band has played
@@ -72,9 +72,7 @@ def main(argv):
     elif function == 1:
         result = findBand(statement, False)
     elif function == 2:
-        result = getBandWeb(statement)
-    elif function == 3:
-        result = getDates(statement)
+        result = statement + "\n" + getBandWeb(statement) + getDates(statement)
 
     # Hand the result back to the server
     return result
