@@ -24,7 +24,7 @@ import android.os.Message;
 import java.net.URI;
 
 
-public class HomeActivity extends Activity /// implements Runnable
+public class HomeActivity extends Activity
 {
     private ListView lv;
     
@@ -36,6 +36,7 @@ public class HomeActivity extends Activity /// implements Runnable
 	lv = (ListView) findViewById(R.id.homeList);
 	CalendarClass cal = new CalendarClass();
 	String [] week = cal.createWeek();
+	
 	//do something like ifPicture() for a day then it will set the picture with the flyer.
 	// if not then it won't display it
 	// some[] week = cal.createWeek();
@@ -62,10 +63,11 @@ public class HomeActivity extends Activity /// implements Runnable
 		// When an item in the list is selected 
 		public void onItemClick(AdapterView<?> parent, View view, int position, long id) 
 		{
-		    // Store the band name
-		    String name = (String) lv.getItemAtPosition(position);
+		    // Store the event info
+		    String event = (String) lv.getItemAtPosition(position);
+		    
 		    Intent nextScreen = new Intent(getApplicationContext(), DayActivity.class);
-		    nextScreen.putExtra("currentDay", name);
+		    nextScreen.putExtra("currentDay", event);
 		    startActivity(nextScreen);
 		    
 		}
