@@ -33,14 +33,15 @@ public final class R {
     }
     public static final class id {
         public static final int afterCheck=0x7f050016;
-        public static final int bandID=0x7f050000;
+        public static final int bandList=0x7f050002;
         public static final int bandListView=0x7f050004;
         public static final int bandName=0x7f050012;
+        public static final int bandNameID=0x7f050000;
         public static final int bandNameValue=0x7f050013;
+        public static final int bandWeb=0x7f050001;
         public static final int beforeCheck=0x7f050015;
         public static final int daysoftheweek=0x7f05000a;
         public static final int directionsButton=0x7f05000f;
-        public static final int eventListView=0x7f050002;
         public static final int gridView1=0x7f05000b;
         public static final int leftArrow=0x7f050006;
         public static final int monthView=0x7f050007;
@@ -54,7 +55,6 @@ public final class R {
         public static final int startButton=0x7f05000e;
         public static final int startLocation=0x7f05000c;
         public static final int startLocationVaule=0x7f05000d;
-        public static final int webID=0x7f050001;
         public static final int yearView=0x7f050008;
     }
     public static final class layout {
