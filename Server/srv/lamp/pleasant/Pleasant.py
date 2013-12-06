@@ -54,10 +54,42 @@ def getBandWeb(name):
 def getDates(name):
     dateString = ""
     bandID = getBandID(name)
-    dates = query("SELECT EVENTDATE FROM EVENT WHERE BAND1 = 1000 OR BAND2 = 1000 OR BAND3 = 1000 OR BAND4 = 1000 OR BAND5 = 1000 OR BAND6 = 1000 OR BAND7 = 1000 OR BAND8 = 1000 OR BAND9 =1000")
+    dates = query("SELECT EVENTDATE FROM EVENT WHERE BAND1 =" + str(bandID) + " OR BAND2 =" + str(bandID) + " OR BAND3 =" + str(bandID) + " OR BAND4 =" + str(bandID) + " OR BAND5 =" + str(bandID) + " OR BAND6 =" + str(bandID) + " OR BAND7 =" + str(bandID) + " OR BAND8 =" + str(bandID) + " OR BAND9 =" + str(bandID))
     for date in dates:
         dateString = dateString + str(date[0]) + "\n"
     return dateString
+
+def getBandsFromDate(date):
+    result=""
+    bands = query("SELECT NAME FROM BAND JOIN EVENT ON BAND.ID = EVENT.BAND1 OR BAND.ID = EVENT.BAND2 OR BAND.ID = EVENT.BAND3 OR BAND.ID = EVENT.BAND4 OR BAND.ID = EVENT.BAND5 OR BAND.I\
+D = EVENT.BAND6 OR BAND.ID = EVENT.BAND7 OR BAND.ID = EVENT.BAND8 OR BAND.ID = EVENT.BAND9 WHERE EVENTDATE ='" + str(date) + "'")
+    for band in bands:
+        result = result + base64.b64decode(band[0])
+    return result
+
+def getComment(date):
+    result = ""
+    comment = query("SELECT COMMENT FROM EVENT WHERE EVENTDATE='" + date + "'")
+    if comment:
+        if comment[0][0]:
+            result = base64.b64decode(comment[0][0])
+        else:
+            result = "NULL"
+    else:
+        result = "NULL"
+    return result
+
+def getTicket(date):
+    result = ""
+    ticket = query("SELECT TICKET FROM EVENT WHERE EVENTDATE='" + date + "'")
+    if ticket:
+        if ticket[0][0]:
+            result = base64.b64decode(ticket[0][0])
+        else:
+            result = "NULL"
+    else:
+        result = "NULL"
+    return result
 
 def main(argv):
 
@@ -73,6 +105,10 @@ def main(argv):
         result = findBand(statement, False)
     elif function == 2:
         result = statement + "\n" + getBandWeb(statement) + getDates(statement)
+    elif function == 3:
+        result = statement + "\n" + getBandsFromDate(statement)
+    elif function == 4:
+        result = statement + "\n" + getComment(statement) + "\n" + getTicket(statement)
 
     # Hand the result back to the server
     return result
