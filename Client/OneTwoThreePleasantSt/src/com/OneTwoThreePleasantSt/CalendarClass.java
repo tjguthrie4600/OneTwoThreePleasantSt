@@ -112,7 +112,7 @@ public class CalendarClass
         }
 
 	String [] bands;// = new String [7];
-	bands = new String [] { "The Cassingles, Jordan Poss, Captain Catfeesh, MORE TBA", "Keep, False Pterodactyl, fuckyourbirthday, Clean Dirty Clean", "Leviathus", "", "Open Mic", "Jucifer, Ancient Shores", "Pigeons Playing Ping Pong" };
+	bands = new String [] { "The Cassingles, Jordan Poss, Captain Catfeesh, MORE TBA", "Keep, False Pterodactyl, fuckyourbirthday, Clean Dirty Clean", "Leviathus", " ", "Open Mic", "Jucifer, Ancient Shores", "Pigeons Playing Ping Pong" };
 	//This is to fill in the additional information for displaying
 	
 	for (int i = 0; i < 7; i++){
