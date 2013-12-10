@@ -23,18 +23,21 @@ import android.net.NetworkInfo;
 import android.os.Message;
 import java.net.URI;
 
-
-public class HomeActivity extends Activity
+public class HomeActivity extends Activity implements Runnable
 {
     private ListView lv;
-    
+    String serverResultDayComments = "";
+    String serverResultsDayBands = "";
+    private ProgressDialog progress;
+    private CalendarClass cal = new CalendarClass();
+
     public void onCreate(Bundle savedInstanceState) 
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.home_layout);
 	
 	lv = (ListView) findViewById(R.id.homeList);
-	CalendarClass cal = new CalendarClass();
+	//CalendarClass cal = new CalendarClass();
 	String [] week = cal.createWeek();
 	
 	//do something like ifPicture() for a day then it will set the picture with the flyer.
@@ -54,7 +57,9 @@ public class HomeActivity extends Activity
 	//	ListView weeklyListing = lv.getListView();
 	listen();
     }
-
+    
+    private String currentDay;
+    
     // Listen for clicks on the list view
     public void listen()
     {
@@ -62,20 +67,81 @@ public class HomeActivity extends Activity
 	    {
 		// When an item in the list is selected 
 		public void onItemClick(AdapterView<?> parent, View view, int position, long id) 
-		{
-		    // Store the event info
-		    String event = (String) lv.getItemAtPosition(position);
+		{		    
+		    currentDay = (String) lv.getItemAtPosition(position);
+		    // Check For Network Connection
+                    ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+                    NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
 		    
-		    Intent nextScreen = new Intent(getApplicationContext(), DayActivity.class);
-		    nextScreen.putExtra("currentDay", event);
-		    startActivity(nextScreen);
+                    // The User Is Not Connected To A Network
+                    if (networkInfo == null)
+                        {
+                            // Tell The User They Are Not Connected
+                            Context context = getApplicationContext();
+                            CharSequence text = "An Active Network Connection Is Required";
+                            int duration = Toast.LENGTH_LONG;
+                            Toast toast = Toast.makeText(context, text, duration);
+                            toast.show();
+                        }
+                    // The User Is Connected To The Internet
+                    else
+                        {
+                            // Display Messege
+                            progress = ProgressDialog.show(HomeActivity.this, "Please Wait", "Retrieving Data", true, false);
+			    
+                            // Create New Thread
+                            Thread thread = new Thread(HomeActivity.this);
+                            thread.start();
+                        }
 		    
 		}
 	    });
     }
+	
+	
+    // When new thread is run
+    public void run()
+    {
+	// Store the current day
+	String splitDay = currentDay.split("\\t")[0]; //only the mm/dd part of the date
+	String evenMoreSplitDay []  = splitDay.split("/");
+	String searchableDay = cal.getYear() +"-" + evenMoreSplitDay[0] +"-" + evenMoreSplitDay[1];
+		
+	// Create The XMLRPC Client
+        URI uri = URI.create("http://98.236.199.243/lamp/pleasant/XML-RPC-Server.py");
+        XMLRPCClient client = new XMLRPCClient(uri);
+        try
+        {
+	    // Make The Call To The Server
+	    serverResultDayComments = (String) client.call("PleasantMobile", "4", searchableDay);
+	    serverResultsDayBands = (String) client.call("PleasantMobile", "3", searchableDay);
+        }
+        catch (XMLRPCException e)
+        {
+	    // Log Errors
+	    Log.w("XMLRPC Error!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!", "Error", e);
+	}
+	
+	// Create And Send Message To User Interface Thread
+        handler.sendEmptyMessage(0);
+    }
 
-    //public void run()
-    //{
 
-    //}
+    // Create The Handler To Communicate Back To The User Interface Thread
+    private Handler handler = new Handler()
+    {
+	@Override
+	public void handleMessage(Message msg)
+	{
+	    // Get Rid Of The Loading Message
+	    progress.dismiss();
+	    // Start The New Activity, Send It The Result
+	    Intent nextScreen = new Intent(getApplicationContext(), DayActivity.class);
+	    nextScreen.putExtra("dayComments",serverResultDayComments);
+	    nextScreen.putExtra("dayBands", serverResultsDayBands);
+	    startActivity(nextScreen);
+	}
+	};
 }
+
+
