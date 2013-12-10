@@ -20,6 +20,7 @@
         <activity android:name=".SearchActivity" />
 	<activity android:name=".BandResultsActivity" />
 	<activity android:name=".BandActivity" />
+	<activity android:name=".DayActivity" />
 	
 
     </application>

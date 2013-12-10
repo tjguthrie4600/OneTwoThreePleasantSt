@@ -7,6 +7,9 @@
 # view AndroidManifest.xml #generated:18
 -keep class com.OneTwoThreePleasantSt.CalendarActivity { <init>(...); }
 
+# view AndroidManifest.xml #generated:23
+-keep class com.OneTwoThreePleasantSt.DayActivity { <init>(...); }
+
 # view AndroidManifest.xml #generated:19
 -keep class com.OneTwoThreePleasantSt.DirectionsActivity { <init>(...); }
 
