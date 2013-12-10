@@ -22,6 +22,7 @@ import android.net.NetworkInfo;
 import android.os.Message;
 import android.widget.TextView;
 import java.net.URI;
+import android.text.util.Linkify;
 
 // Activity To View Band Results
 public class BandActivity extends Activity
@@ -46,6 +47,7 @@ public class BandActivity extends Activity
 	
 	TextView textView2 = (TextView) findViewById(R.id.bandWeb);
         textView2.setText(bandWebsite);
+	Linkify.addLinks(textView2, Linkify.ALL);
 
 	// Container for the results
         ListView lv = (ListView) findViewById(R.id.bandList);
