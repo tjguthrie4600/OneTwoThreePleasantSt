@@ -1,4 +1,5 @@
 /home/tguthri1/OneTwoThreePleasantSt/Client/OneTwoThreePleasantSt/bin/classes.dex : \
+/home/tguthri1/OneTwoThreePleasantSt/Client/OneTwoThreePleasantSt/bin/classes/com/OneTwoThreePleasantSt/BandActivity$1.class \
 /home/tguthri1/OneTwoThreePleasantSt/Client/OneTwoThreePleasantSt/bin/classes/com/OneTwoThreePleasantSt/DirectionsActivity.class \
 /home/tguthri1/OneTwoThreePleasantSt/Client/OneTwoThreePleasantSt/bin/classes/com/OneTwoThreePleasantSt/CalendarActivity$2.class \
 /home/tguthri1/OneTwoThreePleasantSt/Client/OneTwoThreePleasantSt/bin/classes/com/OneTwoThreePleasantSt/SearchActivity.class \
@@ -23,6 +24,7 @@
 /home/tguthri1/OneTwoThreePleasantSt/Client/OneTwoThreePleasantSt/bin/classes/com/OneTwoThreePleasantSt/DirectionsActivity$1.class \
 /home/tguthri1/OneTwoThreePleasantSt/Client/OneTwoThreePleasantSt/bin/classes/com/OneTwoThreePleasantSt/BandResultsActivity$1.class \
 /home/tguthri1/OneTwoThreePleasantSt/Client/OneTwoThreePleasantSt/bin/classes/com/OneTwoThreePleasantSt/HomeActivity.class \
+/home/tguthri1/OneTwoThreePleasantSt/Client/OneTwoThreePleasantSt/bin/classes/com/OneTwoThreePleasantSt/BandActivity$2.class \
 /home/tguthri1/OneTwoThreePleasantSt/Client/OneTwoThreePleasantSt/bin/classes/com/OneTwoThreePleasantSt/BandResultsActivity.class \
 /home/tguthri1/OneTwoThreePleasantSt/Client/OneTwoThreePleasantSt/bin/classes/com/OneTwoThreePleasantSt/DirectionsActivity$4.class \
 /home/tguthri1/OneTwoThreePleasantSt/Client/OneTwoThreePleasantSt/bin/classes/com/OneTwoThreePleasantSt/DayActivity.class \
