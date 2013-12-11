@@ -26,15 +26,22 @@ import android.net.NetworkInfo;
 import android.os.Message;
 import java.net.URI;
 import android.content.Intent;
-
+import android.graphics.Color;
+import android.view.Menu;
+import android.view.MenuItem;
 
 public class CalendarActivity extends Activity implements Runnable
 {
     GridView dayGrid;
     Button next;
     Button prev;
-    CalendarClass calendar = new CalendarClass(); 
-
+    CalendarClass calendar = new CalendarClass();
+    final String currentMonth = calendar.getMonth();
+    final String currentYear = calendar.getYear();
+    final int currentFinalDay = calendar.getCurrentDay();
+    final int currentStartDay = calendar.getStartDay();
+    TextView tv;
+    
     // Days In The Month
     static String[] days = new String[]
     {
@@ -51,8 +58,71 @@ public class CalendarActivity extends Activity implements Runnable
     private String currentDay;
     private String serverResultDayComments;
     private String serverResultsDayBands;
+    private String serverResultDays;
     private ProgressDialog progress;
 
+
+    // Create Options Menu
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu)
+    {
+	menu.add("Hilight Today");
+	menu.add("Show Events");
+	return true;
+    }
+
+    
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item)
+    {
+	if (item.getTitle().toString().equals("Hilight Today"))
+	    showToday();
+	else if (item.getTitle().toString().equals("Show Events"))
+	    fillDays();
+
+	return super.onOptionsItemSelected(item);
+    }
+
+    public void showToday()
+    {
+	if (currentMonth.equals(calendar.getMonth()) && currentYear.equals(calendar.getYear()))
+	{
+	    tv = (TextView) dayGrid.getChildAt(calendar.getStartDay() + currentFinalDay - 1);
+	    tv.setTextColor(Color.BLUE);
+	}
+	else
+	{
+	    Toast.makeText(getApplicationContext(),"Please navigate to current month", Toast.LENGTH_SHORT).show();
+	}
+    }
+
+    public void fillDays()
+    {
+	URI uri = URI.create("http://98.236.199.243/lamp/pleasant/XML-RPC-Server.py");
+        XMLRPCClient client = new XMLRPCClient(uri);
+        try
+        {
+	    // Make The Call To The Server
+	    serverResultDays = (String) client.call("PleasantMobile", "5", calendar.getLastDay());
+        }
+        catch (XMLRPCException e)
+        {
+	    // Log Errors
+	    Log.w("XMLRPC Error!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!", "Error", e);
+	}
+
+	String resultArray[] = serverResultDays.split("\\r?\\n");
+	
+	
+	for (int i = 0; i < resultArray.length; i++)
+	{
+	    if (!(resultArray[i].equals("")))
+	    {
+		tv = (TextView) dayGrid.getChildAt(calendar.getStartDay() + Integer.parseInt(resultArray[i]) - 1);
+		tv.setTextColor(Color.RED);
+	    }
+	}
+    }
     
     // Called When The Activity Is First Created
     public void onCreate(Bundle savedInstanceState) 
@@ -71,9 +141,8 @@ public class CalendarActivity extends Activity implements Runnable
 		public void onItemClick(AdapterView<?> parent, View v, int position, long id) 
 		{
 		    // Display The Clicked Value
+		    
 		    currentDay = calendar.getYear()+ "-" + calendar.getIntMonth() + "-" + ((TextView) v).getText().toString();
-		    //Toast.makeText(getApplicationContext(),daydate, Toast.LENGTH_SHORT).show();
-		    //Toast.makeText(getApplicationContext(), Integer.toString(end), Toast.LENGTH_SHORT).show();
 		    getConnected();
 		}
 	  });
@@ -105,6 +174,7 @@ public class CalendarActivity extends Activity implements Runnable
 
     private void setViews()
     {
+
 	// Set The Array Of Days
 	for (int i = 0; i<calendar.getStartDay(); i++)
 	    days[i] = "";
@@ -195,6 +265,4 @@ public class CalendarActivity extends Activity implements Runnable
 	    startActivity(nextScreen);
 	}
 	};
-
 }
-

@@ -72,9 +72,14 @@ public class CalendarClass
 	year = cal.get(cal.YEAR);
 	month = cal.get(Calendar.MONTH);
     }
-    
-    
-    
+
+    public String getLastDay()
+    {
+	String lastDay = "";
+	lastDay = Integer.toString(year) + "-" + Integer.toString(month + 1) + "-" + Integer.toString(cal.getActualMaximum(Calendar.DAY_OF_MONTH));
+	return lastDay;
+    }
+
     private int getFirstDay(int month, int year)
     {
         Calendar cal = new GregorianCalendar();

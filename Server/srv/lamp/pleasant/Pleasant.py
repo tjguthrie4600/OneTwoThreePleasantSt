@@ -91,6 +91,23 @@ def getTicket(date):
         result = "NULL"
     return result
 
+# Given last day of month, returns all days that have events
+def getMonthlyEvents(lastDate):
+    result = ""
+    finalDay = ""
+    dateList = lastDate.split("-")
+    tempDateList = []
+    year = dateList[0]
+    month = dateList[1]
+    day = dateList[2]
+    dates = query("SELECT EVENTDATE FROM EVENT WHERE EVENTDATE BETWEEN '" + year + "-" + month + "-01' and '" + year + "-" + month + "-" + day + "'")
+    for date in dates:
+        if date[0] is not None:
+            tempDateList = str(date[0]).split("-")
+            finalDay = tempDateList[2]
+            result = result +  finalDay + "\n"
+    return result
+
 def main(argv):
 
     # Get paramaters
@@ -109,6 +126,8 @@ def main(argv):
         result = statement + "\n" + getBandsFromDate(statement)
     elif function == 4:
         result = statement + "\n" + getComment(statement) + "\n" + getTicket(statement)
+    elif function == 5:
+        result = getMonthlyEvents(statement)
 
     # Hand the result back to the server
     return result
