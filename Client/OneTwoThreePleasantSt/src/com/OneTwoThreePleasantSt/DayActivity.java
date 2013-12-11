@@ -32,11 +32,15 @@ public class DayActivity extends Activity
     private String comments;
     private String bandList;
 
+    //    private ListView lv;
+    private ListView listOfBandsView;
+
     public void onCreate(Bundle savedInstanceState) 
     {
 	super.onCreate(savedInstanceState);
         setContentView(R.layout.day_layout);
-	Intent intent = getIntent();
+
+      	Intent intent = getIntent();
         comments = intent.getStringExtra("dayComments");
 	bandList = intent.getStringExtra("dayBands");
 	
@@ -52,15 +56,31 @@ public class DayActivity extends Activity
 		@Override
 		public void onClick (View v)
 		{
-	**/	    
+	**/
+	    
 	//If comment or ticketLink == "NULL" then do not display
-	TextView displayComments = (TextView) findViewById(R.id.dayDate);
-	displayComments.setText(day);
-	
-	TextView displayBands = (TextView) findViewById(R.id.dayEventBands);
-	displayBands.setText(commentsForDay);
+	TextView displayDate = (TextView) findViewById(R.id.dayDate);
+	displayDate.setText(day);
+		
+	TextView displayComments = (TextView) findViewById(R.id.dayComments);
+	displayComments.setText(commentsForDay);
 
-	getSomeTickets = (Button) findViewById(R.id.dayTicket);
+	listOfBandsView = (ListView) findViewById(R.id.dayBandList);
+	ArrayList<String> bandArrayList = new ArrayList<String>();
+	
+	Context context = getApplicationContext();
+	int duration = Toast.LENGTH_LONG;
+	
+	for(int i = 0; i < bandsForDay.length; i++){
+	    bandArrayList.add(bandsForDay[i]);
+	}
+
+	// Display the results
+	ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1, bandArrayList);
+	listOfBandsView.setAdapter(arrayAdapter); 
+
+
+	getSomeTickets = (Button) findViewById(R.id.dayTicketButton);
 
 	// display list of bands
 	// display flyer
@@ -72,13 +92,16 @@ public class DayActivity extends Activity
 	String [] parsedComment = comments.split("\\n");
 	day = parsedComment[0]; 
 	commentsForDay = parsedComment[1]; 
+	if (commentsForDay.equals("NULL")){
+	    commentsForDay = "";
+	}
 	ticketLink = parsedComment[parsedComment.length - 1];
 
 	String [] parsedBands = bandList.split("\\n");
 	
 	bandsForDay = new String [parsedBands.length - 1];
 	for (int i = 1; i < parsedBands.length; i++){
-	    parsedBands[i-1] = parsedBands[i];
+	    bandsForDay[i-1] = parsedBands[i];
 	} 
     }
 

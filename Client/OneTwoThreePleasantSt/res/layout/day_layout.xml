@@ -1,41 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-	      android:orientation="vertical"
-	      android:layout_width="fill_parent"
-	      android:layout_height="fill_parent">
-  
-  <ListView
-      android:id="@+id/dayList"
-      android:layout_width="fill_parent"
-      android:layout_height="fill_parent"/>
-    
-  <TextView
-      android:id="@+id/dayDate"
+		xmlns:tools="http://schemas.android.com/tools"
+		android:layout_width="fill_parent"
+		android:layout_height="fill_parent"
+		android:gravity="center"
+		android:layout_gravity="center_horizontal"
+		android:orientation="vertical" >
+
+  <LinearLayout
+      xmlns:android="http://schemas.android.com/apk/res/android"
+      android:id="@+id/dayHeader"
       android:layout_width="fill_parent"
       android:layout_height="wrap_content"
-      android:gravity="center"
-      android:textSize="25sp"
-      android:textStyle="bold"/>
+      android:orientation="horizontal" >
     
-  <TextView android:id="@+id/dayEventBands"
+    <Button
+	android:id="@+id/leftArrow"
+	android:layout_weight="1"
+        android:layout_width="50px"
+	android:layout_height="50px"
+	android:background="@drawable/icon_previous"/>
+ 
+    <TextView
+	android:id="@+id/dayDate"
+	android:layout_width="fill_parent"
+	android:layout_height="wrap_content"
+	android:gravity="center"
+	android:textSize="25sp"
+	android:layout_weight="4"
+	android:textStyle="bold"/>
+     <Button
+	android:id="@+id/rightArrow"
+	android:layout_weight="1"
+        android:layout_width="50px"
+	android:layout_height="50px"
+	android:background="@drawable/icon_forward"/>
+    
+  </LinearLayout>
+<!-- 	android:layout_height="100px" -->  
+ 
+  <TextView android:id="@+id/dayComments"
 	    android:layout_width="fill_parent"
 	    android:layout_height="wrap_content"
-	    android:layout_below="@+id/dayDate"
-	    android:textSize="20sp"/>
+	    android:textSize="20sp"
+	    android:layout_below="@+id/dayDate"/>
+ 
   <View
+      android:id="@+id/dayLine"
       android:layout_width="fill_parent"
       android:layout_height="2dp"
       android:layout_marginTop="10dip"
       android:background="@android:color/darker_gray"
-      android:layout_below="@id/dayEventBands"/>
-
-  <Button 
-      android:id="@+id/dayTicket"
+      android:layout_below="@id/dayHeader"/> 
+  
+  <ListView
+      android:id="@+id/dayBandList"
+      android:layout_width="fill_parent"
       android:layout_height="wrap_content"
-      android:layout_width="wrap_content"
+      android:layout_below="@id/dayLine"
+      android:layout_above="@+id/dayTicketButton">
+  </ListView>
+  
+  <Button
+      android:id="@+id/dayTicketButton"
+      android:layout_height="wrap_content"
+      android:layout_width="200dip"
       android:text="Get Tickets"
-      android:layout_below="@+id/dayEventBands"
-      android:layout_alignParentRight="true"
-      android:layout_marginTop="125dip"/>
-
+      android:layout_alignParentBottom="true"          
+      android:layout_centerInParent="true"
+      />
 </RelativeLayout>
