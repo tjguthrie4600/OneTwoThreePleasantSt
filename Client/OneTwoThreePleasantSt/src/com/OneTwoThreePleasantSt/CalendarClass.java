@@ -6,6 +6,7 @@ import java.util.GregorianCalendar;
 import java.util.Calendar;
 import java.util.Locale;
 import java.lang.StringBuilder;
+import java.lang.Integer;
 
 public class CalendarClass
 {
@@ -18,50 +19,62 @@ public class CalendarClass
     {
 	cal = Calendar.getInstance();
 	year = cal.get(cal.YEAR);
-	month = month = cal.get(Calendar.MONTH);
+	month = cal.get(Calendar.MONTH);
 	day = cal.get(cal.DAY_OF_MONTH);
     }
-
-    public int getIntMonth(){
-	return (month+1);
+    
+    public CalendarClass(String setDate)
+    {
+	// sets the current calendar date to the specified date
+	// setDate needs to be in the format 'YYYY-MM-DD'
+	cal = Calendar.getInstance();
+	String splitDate [] = setDate.split("-");
+	year = Integer.parseInt(splitDate[0]);
+	month = (Integer.parseInt(splitDate[1]) - 1);
+	day = Integer.parseInt(splitDate[2]);
+	cal.set(year,month,day);
     }
-
+    
+    public int getIntMonth(){
+	return month;
+    }
+    
     public String getMonth()
     {
 	return String.format(Locale.US,"%tB",cal);
     }
-
+    
     public String getYear()
     {
 	return Integer.toString(year);
     }
-
+    
     public int getStartDay()
     {
 	return getFirstDay(month,year);
     }
-
+    
     public int getEndDay()
     {
 	return cal.getActualMaximum(Calendar.DAY_OF_MONTH) - 1;
     }
-
+    
     public void nextMonth()
     {
 	cal.add(Calendar.MONTH, +1);
 	year = cal.get(cal.YEAR);
 	month = month = cal.get(Calendar.MONTH);
     }
-
+    
     public void prevMonth()
     {
 	cal.add(Calendar.MONTH, -1);
 	year = cal.get(cal.YEAR);
 	month = cal.get(Calendar.MONTH);
     }
-
-
-
+    
+    
+    
     private int getFirstDay(int month, int year)
     {
         Calendar cal = new GregorianCalendar();
@@ -92,11 +105,16 @@ public class CalendarClass
 	return day;
     }
     
-    public int getNextDay(){
-	cal.add(Calendar.DAY_OF_MONTH, 1);
-	int nextDay = cal.get(Calendar.DAY_OF_MONTH);
-	cal.add(Calendar.DAY_OF_MONTH, -1);
-	return nextDay;
+    public String getNextDay(){
+	// get the next day, and returns a database acceptable query formatted date for it 'YYYY-MM-DD'
+	cal.add(Calendar.DATE, 1);
+	return cal.get(Calendar.YEAR) + "-" + (cal.get(Calendar.MONTH)+1) + "-" + cal.get(Calendar.DATE);
+    }
+    
+    public String getPrevDay(){
+	// gets the previous day, and returns a database acceptable query formatted date for it 'YYYY-MM-DD'
+	cal.add(Calendar.DATE, -1);
+	return cal.get(Calendar.YEAR) + "-" + (cal.get(Calendar.MONTH)+1) + "-" + cal.get(Calendar.DATE);
     }
     
     public Calendar getCalendar(){
@@ -106,7 +124,7 @@ public class CalendarClass
     public String[] createWeek(){
 	Calendar tempcal = Calendar.getInstance();
         String[] daweek = new String [7];               //eventually this will be another object                                                             
-	
+ 
         String wString = "";
 
         for (int i=0; i < 7; i++){
@@ -114,7 +132,7 @@ public class CalendarClass
 	    tempcal.add(Calendar.DAY_OF_MONTH, 1);
 	    daweek [i] = wString;
         }
-
+	
         return daweek;
     }
     
@@ -146,5 +164,5 @@ public class CalendarClass
 	}
         return sb.toString();
     }
-
+    
 }

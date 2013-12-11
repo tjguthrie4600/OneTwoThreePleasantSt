@@ -33,14 +33,23 @@ public class DayActivity extends Activity implements Runnable
     private Button getSomeTickets;
     private Button nextDay;
     private Button prevDay;
-    
-    private String selectedBand;
-
+  
     // storage for all of the day information
     private String day;
+    private String nextDate = "NULL";
+    private String prevDate = "NULL";
+    private String selectedBand = "NULL";
     private String commentsForDay;
     private String[] bandsForDay;
     private String ticketLink;
+
+    //storage for what goes to the next process
+    
+    private String nextDayCommentsResult;
+    private String nextDayBandsResult;
+    private String prevDayCommentsResult;
+    private String prevDayBandsResult;
+    private String bandResult;
 
     //storage for info that comes from another process
     private String comments;
@@ -50,6 +59,7 @@ public class DayActivity extends Activity implements Runnable
     private ListView listOfBandsView;
     private String serverResult;
     private ProgressDialog progress;
+    private CalendarClass cal;
 
     public void onCreate(Bundle savedInstanceState) 
     {
@@ -63,10 +73,9 @@ public class DayActivity extends Activity implements Runnable
 	//parse it out now.
 	parseDayInfo();
 	
-	/**
 	prevDay = (Button) findViewById(R.id.leftArrow);
 	nextDay = (Button) findViewById(R.id.rightArrow);
-	// listen for previous day's button click
+	/** listen for previous day's button click
 	prevDay.setOnClickListener( new View.OnClickListener()
 	    {
 		@Override
@@ -149,6 +158,31 @@ public class DayActivity extends Activity implements Runnable
 		    selectedBand = (String) listOfBandsView.getItemAtPosition(position);
 		    talkToServer();
 		}});
+
+	// Listen For Right Button Clicks
+	nextDay.setOnClickListener( new View.OnClickListener()
+	    {
+		@Override
+		public void onClick(View v) 
+		{
+		    cal = new CalendarClass(day);
+		    nextDate = cal.getNextDay();
+		    talkToServer();
+		}
+	    });
+
+	// Listen For Left Button Clicks
+	prevDay.setOnClickListener( new View.OnClickListener()
+	    {
+		@Override
+		public void onClick(View v) 
+		{
+		    cal = new CalendarClass(day);
+		    prevDate = cal.getPrevDay();
+		    talkToServer();
+		}
+	    });
+
     }
     
 
@@ -179,7 +213,7 @@ public class DayActivity extends Activity implements Runnable
 	    }
     }
 
-        // When new thread is run                                                                                                                                               
+    // When new thread is run                                                                                                                                               
     public void run()
     {
 	// Create The XMLRPC Client                                                                                                                                         
@@ -187,8 +221,19 @@ public class DayActivity extends Activity implements Runnable
         XMLRPCClient client = new XMLRPCClient(uri);
         try
 	{
-	    // Make The Call To The Server                                                                                                                                  
-	    serverResult = (String) client.call("PleasantMobile", "2", selectedBand);
+	    // Make The Call To The Server
+	    if (! (selectedBand.equals("NULL"))){
+		    bandResult = (String) client.call("PleasantMobile", "2", selectedBand);
+	    }
+	    else if (! (nextDate.equals("NULL"))){
+		nextDayCommentsResult = (String) client.call("PleasantMobile", "4", nextDate);
+		nextDayBandsResult = (String) client.call("PleasantMobile", "3", nextDate);
+	    }
+	    else if (! (prevDate.equals("NULL"))){
+		prevDayCommentsResult = (String) client.call("PleasantMobile", "4", prevDate);
+		prevDayBandsResult = (String) client.call("PleasantMobile", "3", prevDate);
+	    }
+
 	}
         catch (XMLRPCException e)
 	{
@@ -209,8 +254,32 @@ public class DayActivity extends Activity implements Runnable
 		// Get Rid Of The Loading Message                                                                                                                               
 		progress.dismiss();
 		// Start The New Activity, Send It The Result                                                                                                                   
-		Intent nextScreen = new Intent(getApplicationContext(), BandActivity.class);
-		nextScreen.putExtra("result", serverResult);
+		Intent nextScreen = new Intent (getApplicationContext(), BandActivity.class); //some random initialization for the compiler
+		if (! (selectedBand.equals("NULL"))){
+		    //send to band intent place
+		    // uses bandResult
+		    nextScreen = new Intent(getApplicationContext(), BandActivity.class);
+		    nextScreen.putExtra("result", bandResult);
+		    selectedBand = "NULL";
+		}
+		else if (! (nextDate.equals("NULL"))){
+		    //send it to a new day view intent
+		    // uses nextDayCommentsResult, and nextDayBandsResult
+		    nextScreen = new Intent(getApplicationContext(), DayActivity.class);
+		    nextScreen.putExtra("dayComments", nextDayCommentsResult);
+		    nextScreen.putExtra("dayBands", nextDayBandsResult);
+		    nextDate = "NULL";
+		    
+		}
+		else if (! (prevDate.equals("NULL"))){
+		    // send it to a new day view intent
+		    // uses prevDayCommentsResult, and prevDayBandResult
+		    nextScreen = new Intent(getApplicationContext(), DayActivity.class);
+		    nextScreen.putExtra("dayComments",prevDayCommentsResult);
+		    nextScreen.putExtra("dayBands", prevDayCommentsResult);
+		    prevDate = "NULL";
+		    
+		}
 		startActivity(nextScreen);
 	    }
 	};
