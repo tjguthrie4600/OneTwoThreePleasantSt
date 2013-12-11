@@ -30,6 +30,7 @@ public class HomeActivity extends Activity implements Runnable
     String serverResultsDayBands = "";
     private ProgressDialog progress;
     private CalendarClass cal = new CalendarClass();
+    private String[] weekDates = cal.createWeek();
 
     public void onCreate(Bundle savedInstanceState) 
     {
@@ -37,7 +38,7 @@ public class HomeActivity extends Activity implements Runnable
         setContentView(R.layout.home_layout);
 	
 	lv = (ListView) findViewById(R.id.homeList);
-	String [] week = cal.createWeek();
+	String [] week = cal.createDayWeek();
 	
 	//do something like ifPicture() for a day then it will set the picture with the flyer.
 	// if not then it won't display it
@@ -65,8 +66,9 @@ public class HomeActivity extends Activity implements Runnable
 	    {
 		// When an item in the list is selected 
 		public void onItemClick(AdapterView<?> parent, View view, int position, long id) 
-		{		    
-		    currentDay = (String) lv.getItemAtPosition(position);
+		{
+		    currentDay = weekDates[position];
+		    //currentDay = (String) lv.getItemAtPosition(position);
 		    // Check For Network Connection
                     ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
                     NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();

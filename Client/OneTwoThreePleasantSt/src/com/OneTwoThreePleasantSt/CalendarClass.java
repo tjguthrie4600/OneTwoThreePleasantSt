@@ -148,7 +148,7 @@ public class CalendarClass
         String wString = "";
 
         for (int i=0; i < 7; i++){
-	    wString = nameOfWeek(tempcal.get(Calendar.DAY_OF_WEEK));
+	    wString = wString = nameOfWeek(tempcal.get(Calendar.DAY_OF_WEEK));
 	    tempcal.add(Calendar.DAY_OF_MONTH, 1);
 	    daweek [i] = wString;
         }
