@@ -106,19 +106,10 @@ public class CalendarClass
         String wString = "";
 
         for (int i=0; i < 7; i++){
-	    wString = tempcal.get(Calendar.MONTH)+1 +"/"+ tempcal.get(Calendar.DAY_OF_MONTH) +"\t" + nameOfWeek(tempcal.get(Calendar.DAY_OF_WEEK)) ;
+	    wString = tempcal.get(Calendar.YEAR) + "-" + (tempcal.get(Calendar.MONTH)+1) + "-" + tempcal.get(Calendar.DAY_OF_MONTH);
 	    tempcal.add(Calendar.DAY_OF_MONTH, 1);
 	    daweek [i] = wString;
         }
-	/**
-	String [] bands;// = new String [7];
-	bands = new String [] { "The Cassingles, Jordan Poss, Captain Catfeesh, MORE TBA", "Keep, False Pterodactyl, fuckyourbirthday, Clean Dirty Clean", "Leviathus", " ", "Open Mic", "Jucifer, Ancient Shores", "Pigeons Playing Ping Pong" };
-	//This is to fill in the additional information for displaying
-	
-	for (int i = 0; i < 7; i++){
-	    daweek [i] = daweek[i] +"\n" + bands [i];
-	}
-	**/
 
         return daweek;
     }

@@ -37,7 +37,6 @@ public class HomeActivity extends Activity implements Runnable
         setContentView(R.layout.home_layout);
 	
 	lv = (ListView) findViewById(R.id.homeList);
-	//CalendarClass cal = new CalendarClass();
 	String [] week = cal.createWeek();
 	
 	//do something like ifPicture() for a day then it will set the picture with the flyer.
@@ -54,7 +53,6 @@ public class HomeActivity extends Activity implements Runnable
 	ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1, arrayList);
 	lv.setAdapter(arrayAdapter);
 
-	//	ListView weeklyListing = lv.getListView();
 	listen();
     }
     
@@ -102,19 +100,14 @@ public class HomeActivity extends Activity implements Runnable
     // When new thread is run
     public void run()
     {
-	// Store the current day
-	String splitDay = currentDay.split("\\t")[0]; //only the mm/dd part of the date
-	String evenMoreSplitDay []  = splitDay.split("/");
-	String searchableDay = cal.getYear() +"-" + evenMoreSplitDay[0] +"-" + evenMoreSplitDay[1];
-		
 	// Create The XMLRPC Client
         URI uri = URI.create("http://98.236.199.243/lamp/pleasant/XML-RPC-Server.py");
         XMLRPCClient client = new XMLRPCClient(uri);
         try
         {
 	    // Make The Call To The Server
-	    serverResultDayComments = (String) client.call("PleasantMobile", "4", searchableDay);
-	    serverResultsDayBands = (String) client.call("PleasantMobile", "3", searchableDay);
+	    serverResultDayComments = (String) client.call("PleasantMobile", "4", currentDay);
+	    serverResultsDayBands = (String) client.call("PleasantMobile", "3", currentDay);
         }
         catch (XMLRPCException e)
         {
