@@ -140,6 +140,21 @@ public class CalendarClass
 	
         return daweek;
     }
+
+    public String[] createDayWeek(){
+	Calendar tempcal = Calendar.getInstance();
+        String[] daweek = new String [7];               //eventually this will be another object                                                             
+ 
+        String wString = "";
+
+        for (int i=0; i < 7; i++){
+	    wString = nameOfWeek(tempcal.get(Calendar.DAY_OF_WEEK));
+	    tempcal.add(Calendar.DAY_OF_MONTH, 1);
+	    daweek [i] = wString;
+        }
+	
+        return daweek;
+    }
     
     public String nameOfWeek(int dayOfWeek){
 	String name="";

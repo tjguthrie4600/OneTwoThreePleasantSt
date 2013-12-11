@@ -88,7 +88,7 @@ public class CalendarActivity extends Activity implements Runnable
 	if (currentMonth.equals(calendar.getMonth()) && currentYear.equals(calendar.getYear()))
 	{
 	    tv = (TextView) dayGrid.getChildAt(calendar.getStartDay() + currentFinalDay - 1);
-	    tv.setTextColor(Color.BLUE);
+	    tv.setTextColor(Color.YELLOW);
 	}
 	else
 	{
