@@ -22,6 +22,8 @@ import android.content.Context;
 import android.net.NetworkInfo;
 import android.os.Message;
 import java.net.URI;
+import android.view.Menu;
+import android.view.MenuItem;
 
 public class HomeActivity extends Activity implements Runnable
 {
@@ -31,6 +33,28 @@ public class HomeActivity extends Activity implements Runnable
     private ProgressDialog progress;
     private CalendarClass cal = new CalendarClass();
     private String[] weekDates = cal.createWeek();
+
+
+    // Create Options Menu
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu)
+    {
+        menu.add("Contact Maintainer");
+        menu.add("Developers");
+        return true;
+    }
+
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item)
+    {
+        if (item.getTitle().toString().equals("Contact Maintainer"))
+            Toast.makeText(getApplicationContext(),"Report Feedback To: david.krovich@mail.wvu.edu", Toast.LENGTH_SHORT).show();
+        else if (item.getTitle().toString().equals("Developers"))
+            Toast.makeText(getApplicationContext(),"TJ Guthrie and Jacob Wolen", Toast.LENGTH_SHORT).show();
+
+	return super.onOptionsItemSelected(item);
+    }
 
     public void onCreate(Bundle savedInstanceState) 
     {
