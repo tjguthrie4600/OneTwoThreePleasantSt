@@ -1,24 +1,24 @@
-# view AndroidManifest.xml #generated:22
+# view AndroidManifest.xml #generated:23
 -keep class com.OneTwoThreePleasantSt.BandActivity { <init>(...); }
 
-# view AndroidManifest.xml #generated:21
+# view AndroidManifest.xml #generated:22
 -keep class com.OneTwoThreePleasantSt.BandResultsActivity { <init>(...); }
 
-# view AndroidManifest.xml #generated:18
+# view AndroidManifest.xml #generated:19
 -keep class com.OneTwoThreePleasantSt.CalendarActivity { <init>(...); }
 
-# view AndroidManifest.xml #generated:23
+# view AndroidManifest.xml #generated:24
 -keep class com.OneTwoThreePleasantSt.DayActivity { <init>(...); }
 
-# view AndroidManifest.xml #generated:19
+# view AndroidManifest.xml #generated:20
 -keep class com.OneTwoThreePleasantSt.DirectionsActivity { <init>(...); }
 
-# view AndroidManifest.xml #generated:17
+# view AndroidManifest.xml #generated:18
 -keep class com.OneTwoThreePleasantSt.HomeActivity { <init>(...); }
 
 # view AndroidManifest.xml #generated:9
 -keep class com.OneTwoThreePleasantSt.OneTwoThreePleasantSt { <init>(...); }
 
-# view AndroidManifest.xml #generated:20
+# view AndroidManifest.xml #generated:21
 -keep class com.OneTwoThreePleasantSt.SearchActivity { <init>(...); }
 
