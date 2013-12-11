@@ -26,7 +26,8 @@ import android.content.Context;
 import android.net.NetworkInfo;
 import android.os.Message;
 import java.net.URI;
-
+import android.view.ViewGroup;
+import android.net.Uri;
 
 public class DayActivity extends Activity implements Runnable
 {
@@ -75,13 +76,6 @@ public class DayActivity extends Activity implements Runnable
 	
 	prevDay = (Button) findViewById(R.id.leftArrow);
 	nextDay = (Button) findViewById(R.id.rightArrow);
-	/** listen for previous day's button click
-	prevDay.setOnClickListener( new View.OnClickListener()
-	    {
-		@Override
-		public void onClick (View v)
-		{
-	**/
 	    
 	//If comment or ticketLink == "NULL" then do not display
 	TextView displayDate = (TextView) findViewById(R.id.dayDate);
@@ -93,11 +87,11 @@ public class DayActivity extends Activity implements Runnable
 	listOfBandsView = (ListView) findViewById(R.id.dayBandList);
 	ArrayList<String> bandArrayList = new ArrayList<String>();
 	
-	Context context = getApplicationContext();
-	int duration = Toast.LENGTH_LONG;
 	
 	for(int i = 0; i < bandsForDay.length; i++){
-	    bandArrayList.add(bandsForDay[i]);
+	    if ((! (bandsForDay[i].equals("NULL"))) || (! (bandsForDay[i].equals("")))){
+		bandArrayList.add(bandsForDay[i]);
+	    }
 	}
 
 	// Display the results
@@ -106,6 +100,9 @@ public class DayActivity extends Activity implements Runnable
 
 
 	getSomeTickets = (Button) findViewById(R.id.dayTicketButton);
+	if (ticketLink.equals("NULL")){
+	    getSomeTickets.setVisibility(View.INVISIBLE);
+	}
 
 	// display list of bands
 	// display flyer
@@ -121,7 +118,7 @@ public class DayActivity extends Activity implements Runnable
 	    commentsForDay = "";
 	}
 	ticketLink = parsedComment[parsedComment.length - 1];
-
+	
 	String [] parsedBands = bandList.split("\\n");
 	
 	bandsForDay = new String [parsedBands.length - 1];
@@ -137,15 +134,13 @@ public class DayActivity extends Activity implements Runnable
 	    {
 		public void onClick (View v)
 		{
-		    //this will take you to a url link for getting them in a little bit
-			//saddr = start.getText().toString();
-			///final Intent i = new Intent(android.content.Intent.ACTION_VIEW, Uri.parse("http://maps.google.com/maps?saddr=" + saddr + "&daddr=" + daddr));
-			//startActivity(i);
-		    Context ticketContext = getApplicationContext();
+		    /**Context ticketContext = getApplicationContext();
 		    CharSequence tempText = "going to take you to a web link";
 		    int durationOfMessage = Toast.LENGTH_LONG;
 		    Toast toast = Toast.makeText(ticketContext, tempText, durationOfMessage);
-		    toast.show();
+		    toast.show();*/
+		    Intent webviewIntent = new Intent("android.intent.action.VIEW", Uri.parse(ticketLink));
+		    startActivity(webviewIntent);
 		}
 	    }
 	    );
@@ -260,7 +255,6 @@ public class DayActivity extends Activity implements Runnable
 		    // uses bandResult
 		    nextScreen = new Intent(getApplicationContext(), BandActivity.class);
 		    nextScreen.putExtra("result", bandResult);
-		    selectedBand = "NULL";
 		}
 		else if (! (nextDate.equals("NULL"))){
 		    //send it to a new day view intent
@@ -268,7 +262,6 @@ public class DayActivity extends Activity implements Runnable
 		    nextScreen = new Intent(getApplicationContext(), DayActivity.class);
 		    nextScreen.putExtra("dayComments", nextDayCommentsResult);
 		    nextScreen.putExtra("dayBands", nextDayBandsResult);
-		    nextDate = "NULL";
 		    
 		}
 		else if (! (prevDate.equals("NULL"))){
@@ -277,7 +270,6 @@ public class DayActivity extends Activity implements Runnable
 		    nextScreen = new Intent(getApplicationContext(), DayActivity.class);
 		    nextScreen.putExtra("dayComments",prevDayCommentsResult);
 		    nextScreen.putExtra("dayBands", prevDayCommentsResult);
-		    prevDate = "NULL";
 		    
 		}
 		startActivity(nextScreen);
