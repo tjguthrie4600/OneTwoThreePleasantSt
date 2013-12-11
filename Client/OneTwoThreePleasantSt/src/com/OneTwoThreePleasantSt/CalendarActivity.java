@@ -15,9 +15,20 @@ import android.widget.AdapterView.OnItemClickListener;
 import java.util.GregorianCalendar;
 import java.util.Calendar;
 import java.util.Locale;
+import android.app.ProgressDialog;
+import android.util.Log;
+import android.os.Handler;
+import org.xmlrpc.android.XMLRPCClient;
+import org.xmlrpc.android.XMLRPCException;
+import android.net.ConnectivityManager;
+import android.content.Context;
+import android.net.NetworkInfo;
+import android.os.Message;
+import java.net.URI;
+import android.content.Intent;
 
 
-public class CalendarActivity extends Activity 
+public class CalendarActivity extends Activity implements Runnable
 {
     GridView dayGrid;
     Button next;
@@ -35,6 +46,13 @@ public class CalendarActivity extends Activity
 	"", "", "", "", "", "", "",
 	""
     };
+
+
+    private String currentDay;
+    private String serverResultDayComments;
+    private String serverResultsDayBands;
+    private ProgressDialog progress;
+
     
     // Called When The Activity Is First Created
     public void onCreate(Bundle savedInstanceState) 
@@ -52,9 +70,11 @@ public class CalendarActivity extends Activity
 	    {
 		public void onItemClick(AdapterView<?> parent, View v, int position, long id) 
 		{
-			    // Display The Clicked Value
-		    Toast.makeText(getApplicationContext(),((TextView) v).getText(), Toast.LENGTH_SHORT).show();
-		    //Toast.makeText(getApplicationContext(), Integer.toString(endDay), Toast.LENGTH_SHORT).show();
+		    // Display The Clicked Value
+		    currentDay = calendar.getYear()+ "-" + calendar.getIntMonth() + "-" + ((TextView) v).getText().toString();
+		    //Toast.makeText(getApplicationContext(),daydate, Toast.LENGTH_SHORT).show();
+		    //Toast.makeText(getApplicationContext(), Integer.toString(end), Toast.LENGTH_SHORT).show();
+		    getConnected();
 		}
 	  });
 
@@ -112,4 +132,69 @@ public class CalendarActivity extends Activity
 	prev = (Button) findViewById(R.id.leftArrow);
 	next = (Button) findViewById(R.id.rightArrow);
     }
+
+    public void getConnected(){
+	// Check For Network Connection
+	ConnectivityManager connectivityManager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+	NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
+	
+	// The User Is Not Connected To A Network
+	if (networkInfo == null)
+	    {
+		// Tell The User They Are Not Connected
+		Context context = getApplicationContext();
+		CharSequence text = "An Active Network Connection Is Required";
+		int duration = Toast.LENGTH_LONG;
+		Toast toast = Toast.makeText(context, text, duration);
+		toast.show();
+	    }
+	// The User Is Connected To The Internet
+	else
+	    {
+		// Display Messege
+		progress = ProgressDialog.show(CalendarActivity.this, "Please Wait", "Retrieving Data", true, false);
+		
+		// Create New Thread
+		Thread thread = new Thread(CalendarActivity.this);
+		thread.start();
+	    }	
+    }
+    // When new thread is run
+    public void run()
+    {
+	// Create The XMLRPC Client
+        URI uri = URI.create("http://98.236.199.243/lamp/pleasant/XML-RPC-Server.py");
+        XMLRPCClient client = new XMLRPCClient(uri);
+        try
+        {
+	    // Make The Call To The Server
+	    serverResultDayComments = (String) client.call("PleasantMobile", "4", currentDay);
+	    serverResultsDayBands = (String) client.call("PleasantMobile", "3", currentDay);
+        }
+        catch (XMLRPCException e)
+        {
+	    // Log Errors
+	    Log.w("XMLRPC Error!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!", "Error", e);
+	}
+	
+	// Create And Send Message To User Interface Thread
+        handler.sendEmptyMessage(0);
+    }
+// Create The Handler To Communicate Back To The User Interface Thread
+    private Handler handler = new Handler()
+    {
+	@Override
+	public void handleMessage(Message msg)
+	{
+	    // Get Rid Of The Loading Message
+	    progress.dismiss();
+	    // Start The New Activity, Send It The Result
+	    Intent nextScreen = new Intent(getApplicationContext(), DayActivity.class);
+	    nextScreen.putExtra("dayComments",serverResultDayComments);
+	    nextScreen.putExtra("dayBands", serverResultsDayBands);
+	    startActivity(nextScreen);
+	}
+	};
+
 }
+

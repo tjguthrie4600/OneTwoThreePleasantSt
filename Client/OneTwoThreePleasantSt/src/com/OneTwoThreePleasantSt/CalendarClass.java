@@ -22,6 +22,10 @@ public class CalendarClass
 	day = cal.get(cal.DAY_OF_MONTH);
     }
 
+    public int getIntMonth(){
+	return (month+1);
+    }
+
     public String getMonth()
     {
 	return String.format(Locale.US,"%tB",cal);

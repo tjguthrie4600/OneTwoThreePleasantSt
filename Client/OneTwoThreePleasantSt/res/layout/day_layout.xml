@@ -43,7 +43,7 @@
 	    android:layout_width="fill_parent"
 	    android:layout_height="wrap_content"
 	    android:textSize="20sp"
-	    android:layout_below="@+id/dayDate"/>
+	    android:layout_below="@+id/dayHeader"/>
  
   <View
       android:id="@+id/dayLine"
@@ -51,7 +51,7 @@
       android:layout_height="2dp"
       android:layout_marginTop="10dip"
       android:background="@android:color/darker_gray"
-      android:layout_below="@id/dayHeader"/> 
+      android:layout_below="@id/dayComments"/> 
   
   <ListView
       android:id="@+id/dayBandList"
