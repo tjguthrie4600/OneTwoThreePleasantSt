@@ -269,7 +269,7 @@ public class DayActivity extends Activity implements Runnable
 		    // uses prevDayCommentsResult, and prevDayBandResult
 		    nextScreen = new Intent(getApplicationContext(), DayActivity.class);
 		    nextScreen.putExtra("dayComments",prevDayCommentsResult);
-		    nextScreen.putExtra("dayBands", prevDayCommentsResult);
+		    nextScreen.putExtra("dayBands", prevDayBandsResult);
 		    
 		}
 		startActivity(nextScreen);
