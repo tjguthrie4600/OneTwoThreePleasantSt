@@ -141,8 +141,7 @@ public class CalendarActivity extends Activity implements Runnable
 		public void onItemClick(AdapterView<?> parent, View v, int position, long id) 
 		{
 		    // Display The Clicked Value
-		    
-		    currentDay = calendar.getYear()+ "-" + calendar.getIntMonth() + "-" + ((TextView) v).getText().toString();
+		    currentDay = calendar.getYear()+ "-" + Integer.toString(calendar.getIntMonth() + 1) + "-" + ((TextView) v).getText().toString();
 		    getConnected();
 		}
 	  });
