@@ -17,8 +17,8 @@
     <Button
 	android:id="@+id/leftArrow"
 	android:layout_weight="1"
-        android:layout_width="50px"
-	android:layout_height="50px"
+	android:layout_width="120px"
+        android:layout_height="100px"
 	android:background="@drawable/icon_previous"/>
  
     <TextView
@@ -32,8 +32,8 @@
      <Button
 	android:id="@+id/rightArrow"
 	android:layout_weight="1"
-        android:layout_width="50px"
-	android:layout_height="50px"
+	android:layout_width="120px"
+        android:layout_height="100px"
 	android:background="@drawable/icon_forward"/>
     
   </LinearLayout>
